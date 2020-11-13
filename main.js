@@ -12,26 +12,65 @@ let coin = {
   },
   toString: function () {
     if (this.state === 0) {
-      console.log("heads");
+      return "Heads";
     } else {
-      console.log("tails");
+      return "Tails";
     }
     /* 2. Return the string "Heads" or "Tails", depending on whether
            "this.state" is 0 or 1. */
   },
   toHTML: function () {
     let image = document.createElement("img");
+    if (this.state === 0) {
+    } else {
+    }
     /* 3. Set the properties of this image element to show either face-up
            or face-down, depending on whether this.state is 0 or 1.*/
     return image;
   },
 };
 
-coin.flip;
-coin.toString;
-
-for (i = 1; i <= 20; i++) {
-  let numDiv = document.createElement("div");
-  numDiv.append(i);
-  document.body.append(numDiv);
+function display20Flips() {
+  for (i = 1; i <= 20; i++) {
+    coin.flip();
+    coin.toString();
+    let numDiv = document.createElement("div");
+    numDiv.append(i);
+    document.body.append(numDiv);
+    if (this.state === 0) {
+      document.body.append(coin.toString());
+    } else {
+      document.body.append(coin.toString());
+    }
+  }
 }
+
+function display20Images() {
+  for (i = 1; i <= 20; i++) {
+    coin.flip();
+    coin.toString();
+    let numDiv = document.createElement("div");
+    numDiv.append(i);
+    document.body.append(numDiv);
+    if (this.state === 0) {
+      document.body.append(coin.toString());
+    } else {
+      document.body.append(coin.toString());
+    }
+  }
+}
+
+let displayFlipButton = document.createElement("button");
+displayFlipButton.id = "flipButton";
+displayFlipButton.innerText = "Display Flips";
+
+let displayImageButton = document.createElement("button");
+displayImageButton.id = "imageButton";
+displayImageButton.innerText = "Display Images";
+
+document.body.append(displayFlipButton);
+document.body.append(displayImageButton);
+
+displayFlipButton.addEventListener("click", function () {
+  display20Flips();
+});
