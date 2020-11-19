@@ -21,14 +21,18 @@ let coin = {
   },
   toHTML: function () {
     let image = document.createElement("img");
+    image.style.height = "100px";
+    image.style.width = "100px";
     if (this.state === 0) {
+      image.src = "./images/heads.jpg";
     } else {
+      image.src = "./images/tails.jpg";
     }
-    /* 3. Set the properties of this image element to show either face-up
-           or face-down, depending on whether this.state is 0 or 1.*/
     return image;
   },
 };
+/* 3. Set the properties of this image element to show either face-up
+           or face-down, depending on whether this.state is 0 or 1.*/
 
 function display20Flips() {
   for (i = 1; i <= 20; i++) {
@@ -53,9 +57,9 @@ function display20Images() {
     numDiv.append(i);
     document.body.append(numDiv);
     if (this.state === 0) {
-      document.body.append(coin.toString());
+      document.body.append(coin.toHTML());
     } else {
-      document.body.append(coin.toString());
+      document.body.append(coin.toHTML());
     }
   }
 }
@@ -73,4 +77,8 @@ document.body.append(displayImageButton);
 
 displayFlipButton.addEventListener("click", function () {
   display20Flips();
+});
+
+displayImageButton.addEventListener("click", function () {
+  display20Images();
 });
